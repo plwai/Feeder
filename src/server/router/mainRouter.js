@@ -1,8 +1,9 @@
-var renderToString = require('react-dom/server').renderToString
-var match = require('react-router').match
-var RouterContext = require('react-router').RouterContext
-var router = require('express').Router()
-var routes = require('./react-routes/routes')
+import { renderToString } from 'react-dom/server'
+import { match } from 'react-router'
+import { RouterContext } from 'react-router'
+import { Router } from 'express'
+
+var router = Router()
 
 /* Universal Router */
 /*router.get('*', function(req, res, next) {

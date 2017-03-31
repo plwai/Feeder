@@ -4,11 +4,11 @@ const { readdirSync } = require('fs')
 
 module.exports = {
   entry: [
-    './app/app.js'
+    join(__dirname, '../../client/app/app.js')
   ],
   output: {
     filename: 'js/bundle.js',
-    path: join(__dirname, '../static'),
+    path: join(__dirname, '../../static'),
     publicPath: '/'
   },
   module: {

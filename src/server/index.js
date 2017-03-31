@@ -1,9 +1,13 @@
-var express = require('express')
-var path = require('path')
-var cookieParser = require('cookie-parser')
-var bodyParser = require('body-parser')
-var mainRoute = require('./router/mainRouter')
-var config = require('./config/config')()
+import express from 'express'
+import path from 'path'
+import cookieParser from 'cookie-parser'
+import bodyParser from 'body-parser'
+import mainRoute from './router/mainRouter'
+import { STATIC_PATH, getPort } from '../shared/config/config'
+
+console.log(STATIC_PATH);
+
+var config = getPort()
 var app = express()
 
 // view engine setup
@@ -13,8 +17,8 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'static')));
-app.use(express.static(path.join(__dirname, 'node_modules')));
+app.use(express.static(path.join(__dirname, '../', STATIC_PATH)));
+app.use(express.static(path.join(__dirname, '../', 'node_modules')));
 
 app.use('/', mainRoute);
 

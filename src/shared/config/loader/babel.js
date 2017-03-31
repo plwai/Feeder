@@ -4,7 +4,8 @@ module.exports = {
   loader: 'babel-loader',
   options: {
     presets: [
-      'react'
+      'react',
+      ['env', { modules: false }]
     ]
   }
 }
