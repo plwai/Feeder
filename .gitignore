@@ -38,3 +38,6 @@ jspm_packages
 
 # Generated Code
 /dist/
+
+# Code Coverage Files
+/coverage/

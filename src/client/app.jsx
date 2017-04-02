@@ -2,13 +2,17 @@
 
 import React from 'react'
 import HelloButton from './container/hello-button'
+import HelloAsyncButton from './container/hello-async-button'
 import Message from './container/message'
+import MessageAsync from './container/message-async'
 
 const App = () =>
   <div>
     <h1>Hello</h1>
     <Message />
     <HelloButton />
+    <MessageAsync />
+    <HelloAsyncButton />
   </div>
 
 export default App

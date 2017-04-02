@@ -8,7 +8,11 @@
     "compat"
   ],
   "env": {
+    "browser": true,
     "jest": true
+  },
+  "settings": {
+    "polyfills": ["fetch"]
   },
   "rules": {
     "semi": [2, "never"],
