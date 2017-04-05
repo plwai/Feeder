@@ -7,7 +7,7 @@ import {
   sayHelloAsyncRequest,
   sayHelloAsyncSuccess,
   sayHelloAsyncFailure,
-} from '../../src/client/action/hello'
+} from '../../src/shared/action/hello'
 
 import { helloEndpointRoute } from '../../src/shared/routes'
 

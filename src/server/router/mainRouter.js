@@ -1,23 +1,50 @@
 // @flow
-import { Router } from 'express'
-import { isProd } from '../../shared/utils'
-import { STATIC_DIST, WDS_PORT } from '../../shared/config/config'
-import { helloEndpointRoute } from '../../shared/routes'
 
-const router = Router()
+import {
+  homePage,
+  helloPage,
+  helloAsyncPage,
+  helloEndpoint,
+} from '../controller/controller'
 
-// [under app.get('/')...]
+import {
+  HOME_PAGE_ROUTE,
+  HELLO_PAGE_ROUTE,
+  HELLO_ASYNC_PAGE_ROUTE,
+  helloEndpointRoute,
+} from '../../shared/routes'
 
-router.get(helloEndpointRoute(), (req, res) => {
-  res.json({ serverMessage: `Hello from the server! (received ${req.params.num})` })
-})
+import renderApp from '../views/render-app'
 
-/* Universal Router */
-router.get('*', (req, res) => {
-  const markup = 'test'
-  const appPath = `${isProd ? STATIC_DIST : `http://localhost:${WDS_PORT}/dist`}/js/bundle.js`
+export default (app: Object) => {
+  app.get(HOME_PAGE_ROUTE, (req, res) => {
+    res.send(renderApp(req.url, homePage()))
+  })
 
-  res.render('index', { markup, appPath })
-})
+  app.get(HELLO_PAGE_ROUTE, (req, res) => {
+    res.send(renderApp(req.url, helloPage()))
+  })
 
-module.exports = router
+  app.get(HELLO_ASYNC_PAGE_ROUTE, (req, res) => {
+    res.send(renderApp(req.url, helloAsyncPage()))
+  })
+
+  app.get(helloEndpointRoute(), (req, res) => {
+    res.json(helloEndpoint(req.params.num))
+  })
+
+  app.get('/500', () => {
+    throw Error('Fake Internal Server Error')
+  })
+
+  app.get('*', (req, res) => {
+    res.status(404).send(renderApp(req.url))
+  })
+
+  // eslint-disable-next-line no-unused-vars
+  app.use((err, req, res, next) => {
+    // eslint-disable-next-line no-console
+    console.error(err.stack)
+    res.status(500).send('Something went wrong!')
+  })
+}
