@@ -5,12 +5,14 @@ import {
   helloPage,
   helloAsyncPage,
   helloEndpoint,
+  feedPage,
 } from '../controller/controller'
 
 import {
   HOME_PAGE_ROUTE,
   HELLO_PAGE_ROUTE,
   HELLO_ASYNC_PAGE_ROUTE,
+  FEED_PAGE_ROUTE,
   helloEndpointRoute,
 } from '../../shared/routes'
 
@@ -27,6 +29,10 @@ export default (app: Object) => {
 
   app.get(HELLO_ASYNC_PAGE_ROUTE, (req, res) => {
     res.send(renderApp(req.url, helloAsyncPage()))
+  })
+
+  app.get(FEED_PAGE_ROUTE, (req, res) => {
+    res.send(renderApp(req.url, feedPage()))
   })
 
   app.get(helloEndpointRoute(), (req, res) => {
