@@ -4,9 +4,11 @@ import React from 'react'
 
 type Props = {
   placehold: string,
+  inputValue: string,
+  handleChange: Function,
 }
 
-const InputContent = ({ placehold }: Props) =>
-  <textarea placeholder={placehold} ref={(input) => { this.input = input; }} value='' />
+const InputContent = ({ placehold, inputValue, handleChange }: Props) =>
+  <textarea placeholder={placehold} onChange={ e => handleChange(e.target.value)} value={inputValue}/>
 
 export default InputContent

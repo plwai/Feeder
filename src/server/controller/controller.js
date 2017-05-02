@@ -18,5 +18,7 @@ export const feedPage = () => ({
   feed: {
     postUser: 'Dummy User',
     message: 'Server Message',
+    placehold: 'server',
+    inputValue: '',
   },
 })

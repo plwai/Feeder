@@ -10,7 +10,7 @@ const mapStateToProps = () => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  handleClick: () => { dispatch(createFeed(this.input.value)) },
+  handleClick: () => { dispatch(createFeed()) },
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Button)
