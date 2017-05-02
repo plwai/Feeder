@@ -8,7 +8,6 @@ type Props = {
 
 const FeedUser = ({ postUser }: Props ) =>
   <div>
-    <p>asd</p>
     <p>{postUser}</p>
   </div>
 

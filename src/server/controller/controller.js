@@ -15,5 +15,8 @@ export const helloEndpoint = (num: number) => ({
 })
 
 export const feedPage = () => ({
-  feed: { postUser: 'Dummy User' },
+  feed: {
+    postUser: 'Dummy User',
+    message: 'Server Message',
+  },
 })
