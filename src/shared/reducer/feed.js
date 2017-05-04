@@ -9,19 +9,37 @@ import {
 
 const Immutable = require('immutable')
 
+let feedId = 1
+
 const initialState = Immutable.fromJS({
-  postUser: 'Dummy',
-  message: 'Content',
-  placehold: 'input feed',
   inputValue: '',
+  placehold: 'input feed',
+  feedList: [
+    {
+      postUser: 'Dummy ASD',
+      message: 'Content',
+      id: feedId,
+    },
+    {
+      postUser: 'Dummy ASD',
+      message: 'Content',
+      id: feedId += 1,
+    },
+  ],
 })
 
 const feedReducer = (state: Immut = initialState, action: { type: string, payload: any }) => {
   switch (action.type) {
     case CREATE_FEED:
-      return state
-        .set('message', state.get('inputValue'))
-        .set('postUser', 'testUser')
+      feedId += 1
+      return state.set('feedList',
+        [...state.get('feedList'), Immutable.fromJS({
+          message: state.get('inputValue'),
+          postUser: 'testUser',
+          id: feedId,
+        })])
+        .set('inputValue', '')
+
     case CHANGE_TEXT:
       return state.set('inputValue', action.payload)
     default:

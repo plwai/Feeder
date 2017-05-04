@@ -19,7 +19,7 @@ const initStore = (plainPartialState: ?Object) => {
 
   if (plainPartialState && plainPartialState.feed) {
     // flow-disable-next-line
-    preloadedState.feed = helloReducer(undefined, {})
+    preloadedState.feed = feedReducer(undefined, {})
       .merge(Immutable.fromJS(plainPartialState.feed))
   }
 

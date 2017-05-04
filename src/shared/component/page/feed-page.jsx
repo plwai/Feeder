@@ -2,15 +2,13 @@
 
 import React from 'react'
 
-import FeedUser from '../../container/feedUser'
-import Message from '../../container/message'
+import Feed from '../../container/feed'
 import FeedInputContent from '../../container/feed-input-content'
 import FeedButton from '../../container/feed-button'
 
 const FeedUserPage = () =>
   <div>
-    <Message />
-    <FeedUser />
+    <Feed />
     <FeedInputContent />
     <FeedButton />
   </div>

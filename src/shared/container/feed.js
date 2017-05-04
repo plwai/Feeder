@@ -2,10 +2,10 @@
 
 import { connect } from 'react-redux'
 
-import FeedUser from '../component/feedUser'
+import Feed from '../component/feed'
 
 const mapStateToProps = state => ({
   feedList: state.feed.get('feedList'),
 })
 
-export default connect(mapStateToProps)(FeedUser)
+export default connect(mapStateToProps)(Feed)

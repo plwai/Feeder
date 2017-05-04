@@ -16,9 +16,19 @@ export const helloEndpoint = (num: number) => ({
 
 export const feedPage = () => ({
   feed: {
-    postUser: 'Dummy User',
-    message: 'Server Message',
-    placehold: 'server',
     inputValue: '',
+    placehold: 'input feed',
+    feedList: [
+      {
+        postUser: 'Dummy ASD',
+        message: 'Content',
+        id: 1,
+      },
+      {
+        postUser: 'Dummy ASD',
+        message: 'Content',
+        id: 2,
+      },
+    ],
   },
 })
