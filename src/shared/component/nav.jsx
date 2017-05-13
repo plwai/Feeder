@@ -4,8 +4,6 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import {
   HOME_PAGE_ROUTE,
-  HELLO_PAGE_ROUTE,
-  HELLO_ASYNC_PAGE_ROUTE,
   NOT_FOUND_DEMO_PAGE_ROUTE,
   FEED_PAGE_ROUTE,
 } from '../routes'

@@ -9,23 +9,12 @@ import {
 
 const Immutable = require('immutable')
 
-let feedId = 1
+let feedId = 0
 
 const initialState = Immutable.fromJS({
   inputValue: '',
-  placehold: 'input feed',
-  feedList: [
-    {
-      postUser: 'Dummy ASD',
-      message: 'Content',
-      id: feedId,
-    },
-    {
-      postUser: 'Dummy ASD',
-      message: 'Content',
-      id: feedId += 1,
-    },
-  ],
+  placehold: 'type here',
+  feedList: [],
 })
 
 const feedReducer = (state: Immut = initialState, action: { type: string, payload: any }) => {

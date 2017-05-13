@@ -11,7 +11,6 @@ import { BrowserRouter } from 'react-router-dom'
 import thunkMiddleware from 'redux-thunk'
 
 import App from '../shared/app'
-import helloReducer from '../shared/reducer/hello'
 import feedReducer from '../shared/reducer/feed'
 import { isProd } from '../shared/utils'
 
@@ -24,11 +23,9 @@ const preloadedState = window.__PRELOADED_STATE__
 
 const store = createStore(combineReducers(
   {
-    hello: helloReducer,
     feed: feedReducer,
   }),
   {
-    hello: Immutable.fromJS(preloadedState.hello),
     feed: Immutable.fromJS(preloadedState.feed),
   },
   composeEnhancers(applyMiddleware(thunkMiddleware)))
