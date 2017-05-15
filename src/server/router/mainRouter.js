@@ -3,11 +3,13 @@
 import {
   homePage,
   feedPage,
+  userPage,
 } from '../controller/controller'
 
 import {
   HOME_PAGE_ROUTE,
   FEED_PAGE_ROUTE,
+  USER_PAGE_ROUTE,
 } from '../../shared/routes'
 
 import renderApp from '../views/render-app'
@@ -19,6 +21,10 @@ export default (app: Object) => {
 
   app.get(FEED_PAGE_ROUTE, (req, res) => {
     res.send(renderApp(req.url, feedPage()))
+  })
+
+  app.get(USER_PAGE_ROUTE, (req, res) => {
+    res.send(renderApp(req.url, userPage()))
   })
 
   app.get('/500', () => {

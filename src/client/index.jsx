@@ -12,6 +12,7 @@ import thunkMiddleware from 'redux-thunk'
 
 import App from '../shared/app'
 import feedReducer from '../shared/reducer/feed'
+import userReducer from '../shared/reducer/user'
 import { isProd } from '../shared/utils'
 
 const Immutable = require('immutable')
@@ -24,9 +25,11 @@ const preloadedState = window.__PRELOADED_STATE__
 const store = createStore(combineReducers(
   {
     feed: feedReducer,
+    user: userReducer,
   }),
   {
     feed: Immutable.fromJS(preloadedState.feed),
+    user: Immutable.fromJS(preloadedState.user),
   },
   composeEnhancers(applyMiddleware(thunkMiddleware)))
 

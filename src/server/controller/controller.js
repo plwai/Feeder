@@ -9,3 +9,10 @@ export const feedPage = () => ({
     feedList: [],
   },
 })
+
+export const userPage = () => ({
+  user: {
+    userName: 'anonymous',
+    inputName: '',
+  },
+})

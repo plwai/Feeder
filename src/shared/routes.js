@@ -4,4 +4,5 @@
 
 export const HOME_PAGE_ROUTE = '/'
 export const FEED_PAGE_ROUTE = '/feed'
+export const USER_PAGE_ROUTE = '/user'
 export const NOT_FOUND_DEMO_PAGE_ROUTE = '/404'

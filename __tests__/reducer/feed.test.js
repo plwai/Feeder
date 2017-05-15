@@ -1,5 +1,5 @@
 import {
-  createFeed,
+  createUserFeed,
   changeText,
 } from '../../src/shared/action/feed'
 
@@ -26,7 +26,8 @@ test('handle CHANGE_TEXT', () => {
 
 test('handle CREATE_FEED', () => {
   feedState = feedReducer(feedState, changeText('test text'))
-  feedState = feedReducer(feedState, createFeed())
+
+  feedState = feedReducer(feedState, createUserFeed('testUser'))
   expect(feedState.get('feedList')).toEqual([Immutable.fromJS({
     message: 'test text',
     postUser: 'testUser',

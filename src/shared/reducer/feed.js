@@ -24,7 +24,7 @@ const feedReducer = (state: Immut = initialState, action: { type: string, payloa
       return state.set('feedList',
         [...state.get('feedList'), Immutable.fromJS({
           message: state.get('inputValue'),
-          postUser: 'testUser',
+          postUser: action.payload,
           id: feedId,
         })])
         .set('inputValue', '')

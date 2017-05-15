@@ -4,6 +4,7 @@ import { createStore, combineReducers, applyMiddleware } from 'redux'
 import thunkMiddleware from 'redux-thunk'
 
 import feedReducer from '../shared/reducer/feed'
+import userReducer from '../shared/reducer/user'
 
 const Immutable = require('immutable')
 
@@ -16,9 +17,16 @@ const initStore = (plainPartialState: ?Object) => {
       .merge(Immutable.fromJS(plainPartialState.feed))
   }
 
+  if (plainPartialState && plainPartialState.user) {
+    // flow-disable-next-line
+    preloadedState.user = userReducer(undefined, {})
+      .merge(Immutable.fromJS(plainPartialState.user))
+  }
+
   return createStore(combineReducers(
     {
       feed: feedReducer,
+      user: userReducer,
     }),
     preloadedState, applyMiddleware(thunkMiddleware))
 }
