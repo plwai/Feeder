@@ -3,7 +3,12 @@
 import { connect } from 'react-redux'
 
 import UserContent from '../component/user'
-import { createUser, changeName } from '../action/user'
+import { createUser, changeName, changeSnackbar } from '../action/user'
+
+const mapStateToProps = state => ({
+  isSnackbarActive: state.user.get('snackbar'),
+  userName: state.user.get('userName'),
+})
 
 const mapDispatchToProps = dispatch => ({
   createUser: (e) => {
@@ -11,6 +16,8 @@ const mapDispatchToProps = dispatch => ({
     dispatch(createUser())
   },
   changeName: (e) => { dispatch(changeName(e.target.value)) },
+  handleTimeoutSnackbar: () => { dispatch(changeSnackbar(false)) },
+  handleShowSnackbar: () => { dispatch(changeSnackbar(true)) },
 })
 
-export default connect(undefined, mapDispatchToProps)(UserContent)
+export default connect(mapStateToProps, mapDispatchToProps)(UserContent)

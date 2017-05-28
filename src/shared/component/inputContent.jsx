@@ -1,6 +1,7 @@
 // @flow
 
 import React from 'react'
+import { Textfield } from 'react-mdl'
 
 type Props = {
   placehold: string,
@@ -9,6 +10,11 @@ type Props = {
 }
 
 const InputContent = ({ placehold, inputValue, handleChange }: Props) =>
-  <textarea placeholder={placehold} onChange={ e => handleChange(e.target.value)} value={inputValue}/>
+  <Textfield
+    onChange={ (e) => handleChange(e.target.value)}
+    label={placehold}
+    value={inputValue}
+    style={{width: '80%', marginLeft: '10%', marginRight: '10%'}}
+  />
 
 export default InputContent

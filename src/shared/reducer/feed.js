@@ -22,11 +22,11 @@ const feedReducer = (state: Immut = initialState, action: { type: string, payloa
     case CREATE_FEED:
       feedId += 1
       return state.set('feedList',
-        [...state.get('feedList'), Immutable.fromJS({
+        [Immutable.fromJS({
           message: state.get('inputValue'),
           postUser: action.payload,
           id: feedId,
-        })])
+        }), ...state.get('feedList')])
         .set('inputValue', '')
 
     case CHANGE_TEXT:

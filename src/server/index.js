@@ -16,7 +16,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cookieParser())
 app.use(express.static(path.join(__dirname, '../', STATIC_PATH)))
-app.use(express.static(path.join(__dirname, '../', 'node_modules')))
+app.use(express.static(path.join(__dirname, '../../', 'node_modules')))
 
 mainRoute(app)
 

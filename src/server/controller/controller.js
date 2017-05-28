@@ -14,5 +14,6 @@ export const userPage = () => ({
   user: {
     userName: 'anonymous',
     inputName: '',
+    snackbar: false,
   },
 })

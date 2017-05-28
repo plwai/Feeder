@@ -9,8 +9,10 @@ import FeedButton from '../../container/feed-button'
 const FeedUserPage = () =>
   <div>
     <Feed />
-    <FeedInputContent />
-    <FeedButton />
+    <form onSubmit={ (e) => e.preventDefault() }>
+      <FeedInputContent />
+      <FeedButton />
+    </form>
   </div>
 
 export default FeedUserPage

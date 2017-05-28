@@ -1,6 +1,7 @@
 import {
   createUser,
   changeName,
+  changeSnackbar,
 } from '../../src/shared/action/user'
 
 import userReducer from '../../src/shared/reducer/user'
@@ -26,4 +27,12 @@ test('handle CREATE_USER', () => {
 test('handle CHANGE_NAME', () => {
   userState = userReducer(userState, changeName('test name'))
   expect(userState.get('inputName')).toBe('test name')
+})
+
+test('handle CHANGE_SNACKBAR', () => {
+  userState = userReducer(userState, changeSnackbar(true))
+  expect(userState.get('snackbar')).toEqual(true)
+
+  userState = userReducer(userState, changeSnackbar(false))
+  expect(userState.get('snackbar')).toEqual(false)
 })
