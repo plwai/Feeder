@@ -23,13 +23,16 @@ const renderApp = (location: string, plainPartialState: ?Object, routerContext: 
     `<!doctype html>
     <html>
       <head>
-        <title>FIX ME</title>
+        <title>Feeder</title>
       </head>
       <body>
+        <link rel="stylesheet" href="/react-mdl/extra/material.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <div id="main">${appHtml}</div>
         <script>
           window.__PRELOADED_STATE__ = ${JSON.stringify(store.getState())}
         </script>
+        <script src="/react-mdl/extra/material.min.js"></script>
         <script src="${isProd ? STATIC_DIST : `http://localhost:${WDS_PORT}/dist`}/js/bundle.js"></script>
       </body>
     </html>`

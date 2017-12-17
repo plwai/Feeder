@@ -3,26 +3,27 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import {
-  HOME_PAGE_ROUTE,
-  HELLO_PAGE_ROUTE,
-  HELLO_ASYNC_PAGE_ROUTE,
-  NOT_FOUND_DEMO_PAGE_ROUTE,
+  FEED_PAGE_ROUTE,
+  USER_PAGE_ROUTE,
 } from '../routes'
 
+import {
+  Layout,
+  Header,
+  TabBar,
+  Tab,
+} from 'react-mdl'
+
 const Nav = () =>
-  <nav>
-    <ul>
-      {[
-        { route: HOME_PAGE_ROUTE, label: 'Home' },
-        { route: HELLO_PAGE_ROUTE, label: 'Say Hello' },
-        { route: HELLO_ASYNC_PAGE_ROUTE, label: 'Say Hello Asynchronously' },
-        { route: NOT_FOUND_DEMO_PAGE_ROUTE, label: '404 Demo' },
-      ].map(link => (
-        <li key={link.route}>
-          <NavLink to={link.route} activeStyle={{ color: 'limegreen' }} exact>{link.label}</NavLink>
-        </li>
-      ))}
-    </ul>
-  </nav>
+<nav className="mdl-tabs mdl-js-ripple-effect mdl-js-ripple-effect--ignore-events">
+    <TabBar cssPrefix='mdl-tabs' activeTab={1}>
+    {[
+      { route: FEED_PAGE_ROUTE, label: 'Feed' },
+      { route: USER_PAGE_ROUTE, label: 'Profile' },
+    ].map(link => (
+      <Tab component={NavLink} to={link.route} key={link.route} style={{ width: "100%"}} activeStyle={{ color: "pink" }}>{link.label}</Tab>
+    ))}
+    </TabBar>
+</nav>
 
 export default Nav

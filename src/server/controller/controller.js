@@ -2,14 +2,18 @@
 
 export const homePage = () => null
 
-export const helloPage = () => ({
-  hello: { message: 'Server-side preloaded message' },
+export const feedPage = () => ({
+  feed: {
+    inputValue: '',
+    placehold: 'input feed',
+    feedList: [],
+  },
 })
 
-export const helloAsyncPage = () => ({
-  hello: { messageAsync: 'Server-side preloaded message for async page' },
-})
-
-export const helloEndpoint = (num: number) => ({
-  serverMessage: `Hello from the server! (received ${num})`,
+export const userPage = () => ({
+  user: {
+    userName: 'anonymous',
+    inputName: '',
+    snackbar: false,
+  },
 })
